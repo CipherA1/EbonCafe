@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+  <head>
+  <!-- قبل از استایل‌ها این خطوط را اضافه کنید -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ebon Café | منوی دیجیتال</title>
+<style>
+        :root {
+            --primary: #0837ee; /* آبی الکترونیک */
+            --primary-light: rgba(8, 55, 238, 0.1);
+            --text: #ffffff;
+            --text-light: #e0e0e0;
+            --bg: #000000;
+            --bg-light: #0a0a0a;
+            --card-bg: #121212;
+            --glass-effect: rgba(18, 18, 18, 0.7);
+            --neon-glow: 0 0 15px var(--primary);
+        }
+        
+        @font-face {
+            font-family: 'Neon';
+            src: url('fonts/Neon.ttf') format('truetype');
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 20% 30%, var(--primary-light) 0%, transparent 50%);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 5vh 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+            z-index: -1;
+        }
+        
+        .logo {
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 0.001px;
+            filter: drop-shadow(var(--neon-glow));
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .tagline {
+            font-family: 'Neon', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+            letter-spacing: 2px;
+            margin-top: 0.1vh;
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; text-shadow: 0 0 20px var(--primary); }
+        }
+        
+        .menu-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1px;
+            padding: 1vh 4vw;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: var(--glass-effect);
+            border-bottom: 1px solid var(--primary-light);
+        }
+        
+        .nav-btn {
+            background: transparent;
+            color: var(--text);
+            border: none;
+            padding: 1.5vh 3vw;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transition: 0.5s;
+        }
+        
+        .nav-btn:hover {
+            color: var(--text);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+        
+        .nav-btn.active {
+            background-color: var(--primary);
+            color: var(--bg);
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--primary);
+        }
+        
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5vh 5vw;
+        }
+        
+        .menu-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+  scroll-margin-top: 100px;
+}
+
+  
+        
+        .menu-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin: 5vh 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            border-radius: 3px;
+        }
+        
+        .category {
+            margin: 8vh 0;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 3vh;
+            padding-right: 2vw;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-title::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background-color: var(--primary);
+            border-radius: 5px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 3vh 2vw;
+        }
+        
+        .menu-item {
+            background: var(--glass-effect);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3vh;
+            transition: all 0.5s ease;
+            border: 1px solid var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent,
+                transparent,
+                transparent,
+                var(--primary-light)
+            );
+            transform: rotate(30deg);
+            transition: 0.5s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--primary-light);
+        }
+        
+        .menu-item:hover::before {
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5vh;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .item-name {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 1px;
+            
+        }
+        
+        .item-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: rgba(8, 55, 238, 0.2);
+            padding: 0.5vh 1vw;
+            border-radius: 20px;
+        }
+        
+        .item-subtitle {
+            font-size: 1rem;
+            color: #8d8d8d;
+            margin-bottom: 1.5vh;
+            position: relative;
+            z-index: 1;
+            /* برای زیرعنوان‌ها */
+  font-size: 1rem;
+  color: #b5b5b5; /* رنگ خاکستری روشن */
+}
+    
+        
+        .item-desc {
+            font-size: 0.95rem;
+            color: #0837ee;
+            position: relative;
+            z-index: 1;
+        }
+/* استایل‌های جدید فوتر */
+.footer {
+  background: var(--glass-effect);
+  padding: 2rem 5%;
+  border-top: 1px solid var(--primary-light);
+  color: var(--text-light);
+  direction: ltr;
+  text-align: left;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+}
+
+.footer-section h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: var(--primary);
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(8, 55, 238, 0.1);
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(8, 55, 238, 0.2);
+}
+
+.footer-logo {
+  width: 80px;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 5px var(--primary));
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* استایل‌های موبایل */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 5%;
+  }
+  
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-section {
+    flex: 1 1 100%;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .footer-section p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .social-icons {
+    margin-top: 0.7rem;
+    gap: 10px;
+  }
+  
+  .social-icons a {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+  
+  .footer-logo {
+    width: 70px;
+  }
+}
+
+/* تغییر ترتیب در موبایل */
+@media (max-width: 768px) {
+  .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-section.about {
+    order: 1;
+  }
+  
+  .footer-section.social {
+    order: 2;
+  }
+  
+  .footer-section.contact {
+    order: 3;
+  }
+}
+
+
+
+        /* استایل جدید برای آیکون */
+        .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+
+        .icon-wrapper img.icon {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px var(--primary));
+            transition: transform 0.3s ease;
+        }
+
+        .section-title:hover .icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+ 
+    </style>
+</head>
+<body>
+<header class="header">
+<img alt="Ebon Café Logo" class="logo" src="images/logo.png"/>
+<p class="tagline">Where darkness meets flavor</p>
+</header>
+<nav class="menu-nav">
+<button class="nav-btn active" data-section="all">All</button>
+<button class="nav-btn" data-section="coffee">Coffee Bar</button>
+<button class="nav-btn" data-section="cold">Cold Bar</button>
+<button class="nav-btn" data-section="hot">Hot Bar</button>
+<button class="nav-btn" data-section="dessert">Desserts</button> <!-- دکمه جدید -->
+<button class="nav-btn" data-section="food">Food</button>
+<button class="nav-btn" data-section="breakfast">Breakfast</button>
+</nav>
+<div class="menu-container">
+<!-- بخش قهوه -->
+<section class="menu-section" id="coffee">
+<h2 class="section-title">
+<span class="icon-wrapper">
+<img alt="آیکون قهوه" class="icon" src="coffee.png"/>
+</span>
+                Coffee bar
+            </h2>
+<div class="category">
+<h3 class="category-title">Coffee</h3>
+<div class="menu-grid">
+<!-- آیتم اسپرسو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Espresso</div>
+<div class="item-price">50,000 تومان</div>
+</div>
+<div class="item-subtitle">اسپرسو</div>
+<div class="item-desc">9 گرم قهوه</div>
+</div>
+<!-- آیتم دوپیو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Doppio</div>
+<div class="item-price">60,000 تومان</div>
+</div>
+<div class="item-subtitle">دوپیو</div>
+<div class="item-desc">18 گرم قهوه</div>
+</div>
+<!-- آیتم کوبانو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Cubano</div>
+<div class="item-price">60,000 تومان</div>
+</div>
+<div class="item-subtitle">کوبانو</div>
+<div class="item-desc">اسپرسو , شکر قهوه‌ای</div>
+</div>
+<!-- آیتم کن پانا -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Con Panna</div>
+<div class="item-price">65,000 تومان</div>
+</div>
+<div class="item-subtitle">کن پانا</div>
+<div class="item-desc">اسپرسو , خامه</div>
+</div>
+<!-- آیتم آمریکانو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Americano</div>
+<div class="item-price">50,000 تومان</div>
+</div>
+<div class="item-subtitle">آمریکانو</div>
+<div class="item-desc">اسپرسو , اب داغ</div>
+</div>
+<!-- آیتم کن هیلو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Con Hielo</div>
+<div class="item-price">50,000 تومان</div>
+</div>
+<div class="item-subtitle">کن هیلو</div>
+<div class="item-desc">اسپرسو , یک قالب یخ</div>
+</div>
+<!-- آیتم کورتادو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Cortado</div>
+<div class="item-price">70,000 تومان</div>
+</div>
+<div class="item-subtitle">کورتادو</div>
+<div class="item-desc">دو شات اسپرسو , به همان میزان شیر فوم داده شده</div>
+</div>
+<!-- کاپوچینو -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Cappuccino</div>
+<div class="item-price">75,000 تومان</div>
+</div>
+<div class="item-subtitle">کاپوچینو</div>
+<div class="item-desc">یک شات اسپرسو , 180میلی لیتر شیر فوم داده شده</div>
+</div>
+<!-- لاته -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Latte</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">لاته</div>
+<div class="item-desc">یک شات اسپرسو , 250 میلی لیتر شیر , لایه نازک فوم</div>
+</div>
+<!-- موکا -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Mocha</div>
+<div class="item-price">110,000 تومان</div>
+</div>
+<div class="item-subtitle">موکا</div>
+<div class="item-desc">یک شات اسپرسو , 250 میلی لیتر شیر بخار داده شده , سس شکلات </div>
+</div>
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Dirty Coffee</div>
+<div class="item-price">65,000 تومان</div>
+</div>
+<div class="item-subtitle">درتی کافه</div>
+<div class="item-desc">لایه‌ای از اسپرسو داغ روی شیر سرد</div>
+</div>
+<!-- رد آی -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Red Eye</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">رد آی</div>
+<div class="item-desc">یک شات اسپرسو , قهوه دمی دلخواه</div>
+</div>
+<!-- دد آی -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Dead Eye</div>
+<div class="item-price">115,000 تومان</div>
+</div>
+<div class="item-subtitle">دد آی</div>
+<div class="item-desc">سه شات اسپرسو , قهوه دمی دلخواه</div>
+</div>
+<!-- آیریش کافه -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Irish Coffee</div>
+<div class="item-price">120,000 تومان</div>
+</div>
+<div class="item-subtitle">قهوه ایرلندی</div>
+<div class="item-desc">یک شات اسپرسو , شکر قهوه ای , خامه فرم گرفته , سیروپ ایریش </div>
+</div>
+</div>
+</div>
+<div class="category">
+<h3 class="category-title">Brewed Coffee</h3>
+<div class="menu-grid">
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">V60</div>
+<div class="item-price">75,000 تومان</div>
+</div>
+<div class="item-subtitle">وی۶۰</div>
+<div class="item-desc">بیست گرم قهوه دم اوری شده با گجت V60</div>
+</div>
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Cold Brew</div>
+<div class="item-price">80,000 تومان</div>
+</div>
+<div class="item-subtitle">کلد برو</div>
+<div class="item-desc">دویست میلی لیتر قهوه سرد دم </div>
+</div>
+<!-- کمکس -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Chemex</div>
+<div class="item-price">85,000 تومان</div>
+</div>
+<div class="item-subtitle">کمکس</div>
+<div class="item-desc">سی گرم قهوه دم اوری با گجت کمکس</div>
+</div>
+<!-- ترک -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Turkish Coffee</div>
+<div class="item-price">55,000 تومان</div>
+</div>
+<div class="item-subtitle">قهوه ترک</div>
+<div class="item-desc">هشت گرم قهوه ی ترک , هشتاد میلی لیتر اب</div>
+</div>
+<!-- فرانسه -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">French Coffee </div>
+<div class="item-price">75,000 تومان</div>
+</div>
+<div class="item-subtitle">فرنچ</div>
+<div class="item-desc">ده گرم قهوه دم اوری کامل با فرنچ پرس</div>
+</div>
+<!-- یونانی -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Greek Coffee</div>
+<div class="item-price">75,000 تومان</div>
+</div>
+<div class="item-subtitle">قهوه یونانی</div>
+<div class="item-desc">هشت گرم قهوه هشتاد میلی لیتر شیر</div>
+</div>
+</div>
+</div>
+</section>
+<!-- بخش گرم -->
+<section class="menu-section" id="hot">
+  <h2 class="section-title">
+    <span class="icon-wrapper">
+      <img alt="آیکون داغ" class="icon" src="hot.png"/>
+    </span>
+    Hot Bar
+  </h2>
+  
+  <div class="category">
+    <h3 class="category-title">نوشیدنی گرم</h3>
+    <div class="menu-grid">
+      <!-- ماسالا -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Masala Chai</div>
+          <div class="item-price">80,000تومان</div>
+        </div>
+        <div class="item-subtitle">چای ماسالا</div>
+        <div class="item-desc">پودر ماسالا , دویستوهشتاد میلی لیتر شیر </div>
+      </div>
+      
+      <!-- هات چاکلت -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Hot Chocolate</div>
+          <div class="item-price">85,000تومان</div>
+        </div>
+        <div class="item-subtitle">هات چاکلت</div>
+        <div class="item-desc">پودر هات چاکلت و کاکائو, دویستوهشتاد میلی لیتر شیر </div>
+      </div>
+      
+      <!-- وایت چاکلت -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">White Chocolate</div>
+          <div class="item-price">90,000تومان</div>
+        </div>
+        <div class="item-subtitle">وایت چاکلت</div>
+        <div class="item-desc">پودر وایت چاکلت , دویستوهشتاد میلی لیتر شیر </div>
+      </div>
+      
+      <!-- شیر نسکافه -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Nescafe Milk</div>
+          <div class="item-price">90,000 تومان</div>
+        </div>
+        <div class="item-subtitle">شیر نسکافه</div>
+        <div class="item-desc">نسکافه , شیر و شکر  </div>
+      </div>
+      
+      <!-- شیر پسته -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Pistachio Milk</div>
+          <div class="item-price">115,000 تومان</div>
+        </div>
+        <div class="item-subtitle">شیر پسته</div>
+        <div class="item-desc">پودر و کره پسته , دویستوهشتاد میلی لیتر شیر</div>
+      </div>
+      
+      <!-- اسپارک -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Spark</div>
+          <div class="item-price">115,000 تومان</div>
+        </div>
+        <div class="item-subtitle"> اسپارک</div>
+        <div class="item-desc">شیر نارگیل , پودر شکلات , سیروپ کوکی   (به درخواست شما با خامه هم سرو میشود.) </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="category">
+    <h3 class="category-title">چای و دمنوش</h3>
+    <div class="menu-grid">
+    <div class="menu-item" id="black-tea-box">
+  <div class="item-header">
+    <div class="item-name">Black Tea</div>
+    <div class="item-price">70,000 تومان</div>
+  </div>
+  <div class="item-subtitle">چای سیاه</div>
+  <div class="item-desc"></div>
+
+  <div class="item-subtitle" style="color: var(--primary); cursor: pointer;" onclick="toggleTeaFlavors()">Other... ▼</div>
+
+  <div id="tea-flavors" style="display: none; margin-top: 1rem;">
+    <div style="font-size: 0.9rem; color: #ccc;">چای هل</div>
+    <div style="font-size: 0.9rem; color: #ccc;">چای دارچین</div>
+    <div style="font-size: 0.9rem; color: #ccc;">چای بهارنارنج</div>
+      <div style="font-size: 0.9rem; color: #ccc;">چای گل محمدی </div>
+      <div style="font-size: 0.9rem; color: #ccc;">چای گل زنجفیل </div>
+      <div style="font-size: 0.9rem; color: #ccc;">چای زعفران </div>
+  </div>
+</div>
+
+      
+      <!-- دمنوش گل گاوزبان -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Persian borage Tea</div>
+          <div class="item-price">50,000 تومان</div>
+        </div>
+        <div class="item-subtitle">دمنوش گل گاوزبان</div>
+        <div class="item-desc">آرامش‌بخش و بهبود کیفیت خواب</div>
+      </div>
+
+
+      <!-- دمنوش به لیمو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Lemon Verbena</div>
+          <div class="item-price">50,000 تومان</div>
+        </div>
+        <div class="item-subtitle">دمنوش به لیمو</div>
+        <div class="item-desc">نفسِ سبک , ذهنِ ارام</div>
+           </div>
+
+          <!-- دمنوش اویشن -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name"> Tyhme Tea</div>
+          <div class="item-price">50,000 تومان</div>
+            </div>
+        <div class="item-subtitle">دمنوش اویشن</div>
+        <div class="item-desc">گرم , ارام کننده دستگاه تنفس 
+      </div>
+    </div>
+  </div>
+</section>
+<!-- بخش سرد -->
+<section class="menu-section" id="cold">
+  <h2 class="section-title">
+    <span class="icon-wrapper">
+      <img alt="آیکون کولد بار" class="icon" src="cold.png"/>
+    </span>
+    Cold Bar
+  </h2>
+  
+  <div class="category">
+    <h3 class="category-title">قهوه های سرد</h3>
+    <div class="menu-grid">
+      <!-- آیس آمریکانو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Americano</div>
+          <div class="item-price">50,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس آمریکانو</div>
+        <div class="item-desc">اسپرسو با آب سرد و یخ</div>
+      </div>
+      
+      <!-- آیس موکا -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Mocha</div>
+          <div class="item-price">110,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس موکا</div>
+        <div class="item-desc"> اسپرسو، شیر سرد، شکلات و یخ</div>
+      </div>
+      
+      <!-- آفوگاتو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Affogato</div>
+          <div class="item-price">75,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آفوگاتو</div>
+        <div class="item-desc">بستنی وانیلی با شات داغ اسپرسو</div>
+      </div>
+      
+      <!-- فراپاچینو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Frappuccino</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">فراپاچینو</div>
+        <div class="item-desc"> اسپرسو با یخ, بستنی و شیر سرد و خامه , سیروپ دلخواه  </div>
+      </div>
+      
+      <!-- آیس لاته -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Latte</div>
+          <div class="item-price">95,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس لاته</div>
+        <div class="item-desc">اسپرسو , شیر سرد و یخ , سیروپ دلخواه</div>
+      </div>
+      
+      <!-- آیس لاته توت فرنگی -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Strawberry Iced Latte</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس لاته توت فرنگی</div>
+        <div class="item-desc"> اسپرسو و شیر سرد توت فرنگی , سس توت فرنگی</div>
+      </div>
+      
+      <!-- آیس پسته لاته -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Pistachio Iced Latte</div>
+          <div class="item-price">130,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس پسته لاته</div>
+        <div class="item-desc"> اسپرسو , شیر سرد و کره پسته </div>
+      </div>
+      
+      <!-- آیس ماچا لاته -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Matcha Latte</div>
+          <div class="item-price">-</div>
+        </div>
+        <div class="item-subtitle">آیس ماچا لاته</div>
+        <div class="item-desc"> اسپرسو , ماچا ,  شیر سرد و یخ </div>
+      </div>
+      
+      <!-- آیس اسپیرولینا لاته -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Spirulina Latte</div>
+          <div class="item-price">-</div>
+        </div>
+        <div class="item-subtitle">آیس اسپیرولینا لاته</div>
+        <div class="item-desc"> پودر اسپیرولینا , شیر سرد و یخ </div>
+      </div>
+      
+      <!-- آیس پاستیلاته -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Pastel Latte</div>
+          <div class="item-price">پ120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس پاستیلاته</div>
+        <div class="item-desc"> اسپرسو و شیر سرد و یخ , پاستیل اب شده </div>
+      </div>
+      
+      <!-- آیس چاکلت کوکی -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Iced Chocolate Cookie</div>
+          <div class="item-price">125,000 تومان</div>
+        </div>
+        <div class="item-subtitle">آیس چاکلت کوکی</div>
+        <div class="item-desc"> پودر هاتچاکلت , کوکی , شیر و سیروپ کوکی </div>
+      </div>
+      
+      <!-- چوکو بری چاکلت -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Choco Berry Chocolate</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">چوکو بری چاکلت</div>
+        <div class="item-desc"> کوکی و توت فرنگی و شیر سرد</div>
+      </div>
+      
+      <!-- دالگونا -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Dalgona Coffee</div>
+          <div class="item-price">95,000 تومان</div>
+        </div>
+        <div class="item-subtitle">دالگونا</div>
+        <div class="item-desc">اسپرسو داغ روی شیر سرد</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="category">
+    <h3 class="category-title">نوشیدنی‌های سرد (ماکتیل)</h3>
+    <div class="menu-grid">
+      <!-- لیموناد -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Lemonade</div>
+          <div class="item-price">70,000 تومان</div>
+        </div>
+        <div class="item-subtitle">لیموناد</div>
+        <div class="item-desc"> لیمو تازه , شکر و آب گازدار</div>
+      </div>
+
+      <!-- موهیتو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Mojito</div>
+          <div class="item-price">90,000 تومان</div>
+        </div>
+        <div class="item-subtitle">موهیتو</div>
+        <div class="item-desc">نعنا تازه، لیمو، سیروپ رام و سودا </div>
+      </div>
+
+      <!-- رد موهیتو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Red Mojito</div>
+          <div class="item-price">110,000 تومان</div>
+        </div>
+        <div class="item-subtitle">رد موهیتو</div>
+        <div class="item-desc">نعنا تازه , لیمو , سیروپ توت فرنگی , سیروپ رام و سودا </div>
+      </div>
+
+      <!-- واتر ملون موهیتو -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Watermelon Mojito</div>
+          <div class="item-price">115,000 تومان</div>
+        </div>
+        <div class="item-subtitle">واتر ملون موهیتو</div>
+        <div class="item-desc"> اب هندوانه تازه , لیمو , نعنا </div>
+      </div>
+
+      <!-- مارگاریتا ترش -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Sour Margarita</div>
+          <div class="item-price">125,000 تومان</div>
+        </div>
+        <div class="item-subtitle">مارگاریتا ترش</div>
+        <div class="item-desc"></div>
+      </div>
+
+      <!-- اوشن -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Ocean</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">اوشن</div>
+        <div class="item-desc"></div>
+      </div>
+
+      <!-- بلولاگون -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Blue Lagoon</div>
+          <div class="item-price">130,000 تومان</div>
+        </div>
+        <div class="item-subtitle">بلولاگون</div>
+        <div class="item-desc">سیروپ بلوکارسائو , اب پرتقال , اب الوئه ورا , اب سیب , اب لیمو</div>
+      </div>
+
+      <!-- فایربال -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Fireball</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">فایربال</div>
+        <div class="item-desc">سیروپ بلومیکس , اب انبه , اب پرتقال , اب لیمو  </div>
+      </div>
+
+      <!-- ویچر -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Witcher</div>
+          <div class="item-price">130,000 تومان</div>
+        </div>
+        <div class="item-subtitle">ویچر</div>
+        <div class="item-desc">سیروپ بلوبری , اب اناناس , اب الوئه ورا , اب لیمو , نوشیدنی اب کاکتوس</div>
+      </div>
+
+      <!-- گادفادر -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Godfather</div>
+          <div class="item-price">125,000 تومان</div>
+        </div>
+        <div class="item-subtitle">گادفادر</div>
+        <div class="item-desc"></div>
+      </div>
+
+      <!-- جسپر -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Jasper</div>
+          <div class="item-price">135,000 تومان</div>
+        </div>
+        <div class="item-subtitle">جسپر</div>
+        <div class="item-desc">سیروپ لواشک , اب انار , اب زغال اخته , اب زرشک , نمک دریا  </div>
+      </div>
+
+      <!-- بلاد شات -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Blood Shot</div>
+          <div class="item-price">95,000 تومان</div>
+        </div>
+        <div class="item-subtitle">بلاد شات</div>
+        <div class="item-desc">اب انار , اب الوئه ورا , لیمو تازه </div>
+      </div>
+
+      <!-- کالم اسکای -->
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Calm Sky</div>
+          <div class="item-price">115,000 تومان</div>
+        </div>
+        <div class="item-subtitle">کالم اسکای</div>
+        <div class="item-desc">سیروپ بلوکاراسائو , بلوبری , کربن سیاه  </div>
+      </div>
+    </div>
+  </div>
+
+<div class="category">
+<h3 class="category-title">شیک ها </h3>
+<div class="menu-grid">
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Oreo Milkshake</div>
+<div class="item-price">140,000 تومان</div>
+</div>
+<div class="item-subtitle">شیک اورئو</div>
+<div class="item-desc"></div>
+</div>
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Nutella Shake</div>
+<div class="item-price">140,000 تومان</div>
+</div>
+<div class="item-subtitle">شیک نوتلا</div>
+<div class="item-desc"></div>
+</div>
+
+
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Niscafe Shake</div>
+<div class="item-price">180,000 تومان</div>
+</div>
+<div class="item-subtitle">شیک نسکافه</div>
+<div class="item-desc"></div>
+</div>
+
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Bubblegum Shake</div>
+<div class="item-price">180,000 تومان</div>
+</div>
+<div class="item-subtitle">شیک شیک بال گام</div>
+<div class="item-desc"></div>
+</div>
+
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Saffron & Pistachio Shake</div>
+<div class="item-price">180,000 تومان</div>
+</div>
+<div class="item-subtitle">شیک زعفران پسته</div>
+<div class="item-desc"></div>
+</div>
+
+
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name"> شیک اسپیرولینا</div>
+<div class="item-price">-</div>
+</div>
+<div class="item-subtitle">شیک اسپیرولینا</div>
+<div class="item-desc"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- بخش کیک و دسر -->
+<section class="menu-section" id="dessert">
+  <h2 class="section-title">
+    <span class="icon-wrapper">
+      <img alt="آیکون دسر" class="icon" src="dessert.png"/>
+    </span>
+    Cake & Dessert
+  </h2>
+
+
+<div class="category">
+<h3 class="category-title">تیرامیسو</h3>
+<div class="menu-grid">
+<!-- تیرامیسو دبل چاکلت -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Double Chocolate Tiramisu</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">تیرامیسو دبل چاکلت</div>
+<div class="item-desc"> </div>
+</div>
+
+<!-- تیرامیسو وانیل -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name"> Vanilla Pistachio Tiramisu</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">تیرامسیو وانیل پسته </div>
+<div class="item-desc"></div>
+</div>
+
+
+
+<!-- تیرامیسو توت فرنگی -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name"> Strawberry Tiramisu</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">تیرامیسو توت فرنگی </div>
+<div class="item-desc"></div>
+</div>
+
+<!-- تیرامیسو لوتوس -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name"> Lotus Tiramisu</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">تیرامسیو لوتوس </div>
+<div class="item-desc"></div>
+</div>
+<!-- تیرامیسو نسکافه -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name"> Nescafe Tiramisu</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">تیرامسیو نسکافه </div>
+<div class="item-desc"></div>
+</div>
+</div>
+</div>
+<div class="category">
+<h3 class="category-title">موس‌های ویژه</h3>
+<div class="menu-grid">
+<!-- موس شکلات -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Chocolate Mousse</div>
+<div class="item-price">120,000 تومان</div>
+</div>
+<div class="item-subtitle">موس شکلاتی</div>
+<div class="item-desc"></div>
+</div>
+<!-- موس توت فرنگی -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Strawberry Mousse</div>
+<div class="item-price">125,000 تومان</div>
+</div>
+<div class="item-subtitle">موس توت فرنگی</div>
+<div class="item-desc"></div>
+</div>
+<!-- موس وانیل پسته -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Pistachio Vanilla Mousse</div>
+<div class="item-price">140,000 تومان</div>
+</div>
+<div class="item-subtitle">موس وانیل پسته</div>
+<div class="item-desc"> </div>
+</div>
+<!-- موس لوتوس -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Lotus Mousse</div>
+<div class="item-price">130,000 تومان</div>
+</div>
+<div class="item-subtitle">موس لوتوس</div>
+<div class="item-desc"></div>
+</div>
+</div>
+</div>
+<div class="category">
+<h3 class="category-title">وافل و کروسان</h3>
+<div class="menu-grid">
+<!-- وافل بلژیکی -->
+
+
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Ice Cream Waffle</div>
+<div class="item-price">145,000 تومان</div>
+</div>
+<div class="item-subtitle">وافل بستنی</div>
+<div class="item-desc">  وافل تازه , بستنی وانیلی , سس شکلات یا کارامل , ترافل یا میوه(اختیاری)</div>
+</div>
+
+<!-- کروسان نوتلا -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Nutella Croissant</div>
+<div class="item-price">125,000 تومان</div>
+</div>
+<div class="item-subtitle">کروسان نوتلا</div>
+<div class="item-desc">کروسان کره ای تازه , نوتلا , پودرقند یا شکلات اب شده(اختیاری) </div>
+</div>
+<!-- کروسان ایبن -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Ebon Croissant</div>
+<div class="item-price">100,000 تومان</div>
+</div>
+<div class="item-subtitle">کروسان ایبن</div>
+<div class="item-desc">کروسان سیاه رنگ با کرم مخصوص ایبن</div>
+</div>
+<!-- سن سباستین -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">San Sebastian</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">سن سباستین</div>
+<div class="item-desc"></div>
+</div>
+</div>
+</div>
+<div class="category">
+<h3 class="category-title">چیزکیک‌ها</h3>
+<div class="menu-grid">
+<!-- چیزکیک توت فرنگی -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Strawberry Cheesecake</div>
+<div class="item-price">85,000 تومان</div>
+</div>
+<div class="item-subtitle">چیزکیک توت فرنگی</div>
+<div class="item-desc"> </div>
+</div>
+<!-- چیزکیک نوتلا -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Nutella Cheesecake</div>
+<div class="item-price">85,000 تومان</div>
+</div>
+<div class="item-subtitle">چیزکیک نوتلا</div>
+<div class="item-desc"> </div>
+</div>
+<!-- چیزکیک ایبن -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name"> Ebon Cheesecake</div>
+<div class="item-price">85,000 تومان</div>
+</div>
+<div class="item-subtitle">چیزکیک ایبن</div>
+<div class="item-desc"></div>
+</div>
+<!-- چیزکیک پسته -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Pistachio Cheesecake</div>
+<div class="item-price">85,000 تومان</div>
+</div>
+<div class="item-subtitle">چیزکیک پسته</div>
+<div class="item-desc"></div>
+</div>
+<!-- چیزکیک لوتوس -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Lotus Cheesecake</div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle">چیزکیک لوتوس</div>
+<div class="item-desc"></div>
+</div>
+<!-- کاپ کیک ایبن -->
+<div class="menu-item">
+<div class="item-header">
+<div class="item-name">Ebon Cupcake </div>
+<div class="item-price">95,000 تومان</div>
+</div>
+<div class="item-subtitle"> کاپ کیک ایبن</div>
+<div class="item-desc"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- بخش غذایی -->
+<section class="menu-section" id="food">
+  <h2 class="section-title">
+    <span class="icon-wrapper">
+      <img alt="آیکون غذایی" class="icon" src="food.png"/>
+    </span>
+    Food
+  </h2>
+
+
+  <!-- پیش غذاها -->
+  <div class="category">
+    <h3 class="category-title">Appetizers</h3>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Classic Fries</div>
+          <div class="item-price">115,000 تومان</div>
+        </div>
+        <div class="item-subtitle">سیب کلاسیک</div>
+        <div class="item-desc"></div>
+      </div>
+
+        <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Bacon Fries</div>
+          <div class="item-price">140,000 تومان</div>
+        </div>
+        <div class="item-subtitle">سیب بیکن </div>
+        <div class="item-desc">دویست و پنجاه گرم سیب زمینی بیکن مرغ و گوشت , دیپ چدار  </div>
+      </div>
+
+         <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Ebon Hot Chips</div>
+          <div class="item-price">170,000 تومان</div>
+        </div>
+        <div class="item-subtitle">هات چیپس ایبن</div>
+        <div class="item-desc">دویست و پنجاه گرم سیب زمینی و چیپس , بیکن مرغ و گوشت , پنیر پیتزا , سس مخصوص  </div>
+      </div>
+
+  <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name"> Chiken Strips</div>
+          <div class="item-price">225,000 تومان</div>
+        </div>
+        <div class="item-subtitle"> فیله استریپس</div>
+        <div class="item-desc">چهارتیکه فیله ی مرغ , سس مریلین مونرو , سیب زمینی دورچین</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- پاستا -->
+  <div class="category">
+    <h3 class="category-title">Pasta</h3>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Fettuccine Alfredo</div>
+          <div class="item-price">230,000 تومان</div>
+        </div>
+        <div class="item-subtitle">فتوچینی الفردو </div>
+        <div class="item-desc">ماکارونی فتوچینی , سس الفردو , مرغ گریل شده , سبزیجات</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Fettuccine Chiken Pesto</div>
+          <div class="item-price">20,000 تومان</div>
+        </div>
+        <div class="item-subtitle">فتوچینی چیکن پستو</div>
+        <div class="item-desc"> ماکارونی فتوچینی , سس پستو , مرغ گریل شده </div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Fettuccine Marinara</div>
+          <div class="item-price">260,000 تومان</div>
+        </div>
+        <div class="item-subtitle">فتوچینی مارینارا </div>
+        <div class="item-desc">ماکارونی فتوچینی , سس گوجه و ادویه مخصوص , سبزیجات </div>
+    </div>
+
+       <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Ebon Fettuccine  </div>
+          <div class="item-price">285,000 تومان</div>
+        </div>
+        <div class="item-subtitle"> فتوچینی ایبُن </div>
+        <div class="item-desc">ماکارونی فتوچینی مشکی , گوشت مزه دار شده , سس گوجه مخصوص , ریحان و جعفری </div>
+      </div>
+  </div>
+    </div><!-- بستن بخش food -->
+
+  
+  <!-- برگرها -->
+  <div class="category">
+    <h3 class="category-title">Burgers</h3>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Classic CheeseBurger</div>
+          <div class="item-price">215,000 تومان</div>
+        </div>
+        <div class="item-subtitle">چیز برگر کلاسیک</div>
+        <div class="item-desc"> </div>
+      </div>
+
+       <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Chiken CheeseBurger</div>
+          <div class="item-price">170,000 تومان</div>
+        </div>
+        <div class="item-subtitle">چیکن چیزبرگر</div>
+        <div class="item-desc">دو لایه پنیر چدار با مرع , سس , سبزیجات</div>
+      </div>
+
+        <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Crispy Burger</div>
+          <div class="item-price">170,000 تومان</div>
+        </div>
+        <div class="item-subtitle">چیکن چیزبرگر</div>
+        <div class="item-desc">دو لایه پنیر چدار با گوشت و فیله سوخاری , سس , سبزیجات </div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Mushroom Burger</div>
+          <div class="item-price">230,000 تومان</div>
+        </div>
+        <div class="item-subtitle">پنیر ورقه ای و گوشت , سس قارچ </div>
+        <div class="item-desc">گوشت  </div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name"> Ebon BBQ Burger</div>
+          <div class="item-price">310,000 تومان</div>
+        </div>
+        <div class="item-subtitle">ایبن باربیکن برگر</div>
+        <div class="item-desc"> </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- پنینی -->
+  <div class="category">
+    <h3 class="category-title">panini</h3>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">beef bacon panini</div>
+          <div class="item-price">170,000 تومان</div>
+        </div>
+        <div class="item-subtitle">پنینی بیکن گوشت </div>
+        <div class="item-desc"></div>
+      </div>
+
+          <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Chiken Pesto panini</div>
+          <div class="item-price">190,000 تومان</div>
+        </div>
+        <div class="item-subtitle">پنینی چیکن پستو </div>
+        <div class="item-desc"></div>
+      </div>
+
+  <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Bacon Chiken panini</div>
+          <div class="item-price">150,000 تومان</div>
+        </div>
+        <div class="item-subtitle">پنینی بیکن مرغ  </div>
+        <div class="item-desc"></div>
+      </div>
+</div>
+</div>
+  
+</section>
+<!-- حالا صبحانه بیاد بعدش -->
+<section class="menu-section" id="breakfast">
+
+  <h2 class="section-title">
+    <span class="icon-wrapper">
+      <img alt="آیکون صبحانه" class="icon" src="breakfast.png"/>
+    </span>
+    Breakfast
+  </h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Ebon Special </div>
+          <div class="item-price">95,000 تومان</div>
+        </div>
+        <div class="item-subtitle">سینی مخصوص </div>
+        <div class="item-desc">   </div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">English Breakfast</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">صبحانه انگلیسی</div>
+        <div class="item-desc">تخم مرغ , بیکن , لوبیا پخته شده , سوسیس</div>
+      </div>
+
+        <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">French Breakfast</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">صبحانه فرانسوی</div>
+        <div class="item-desc">کروسان , پنیر خامه ای , مربا  </div>
+      </div>
+
+         <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Persian Breakfast</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">صبحانه ایرانی</div>
+        <div class="item-desc">تخم مرغ اب پز یا نیمرو , کره و عسل , چای</div>
+      </div>
+
+           <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Egg Burger</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">اگ برگر</div>
+        <div class="item-desc"></div>
+      </div>
+
+            <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name"> Chocolate Pancakes</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">پنکیک  شکلاتی </div>
+        <div class="item-desc"></div>
+      </div>
+
+              <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Mushroom Omlette</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">املت قارچ</div>
+        <div class="item-desc"></div>
+      </div>
+
+               <div class="menu-item">
+        <div class="item-header">
+          <div class="item-name">Scramble</div>
+          <div class="item-price">120,000 تومان</div>
+        </div>
+        <div class="item-subtitle">اسکرامبل</div>
+        <div class="item-desc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-wrapper">
+    
+    <!-- ستون ۱: About -->
+    <div class="footer-section about">
+      <h3>About Ebon</h3>
+      <p>Ebon Café combines darkness and flavor to create a unique experience. This is where coffee and food lovers can enjoy high-quality products in a modern and peaceful atmosphere.</p>
+    </div>
+
+ <!-- ستون ۲: Social Media -->
+<div class="footer-section social">
+  <h3>Follow Us</h3>
+  <div class="social-icons">
+    <!-- اینستاگرام -->
+    <a href="https://www.instagram.com/ebon.cafe?igsh=dDZudjY1bWp4OHRy" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <!-- تلگرام -->
+    <a href="https://t.me/mehdiiiforootan" target="_blank" aria-label="Telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+    <!-- واتساپ -->
+    <a href="https://wa.me/989371841975" target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</div>
+
+    <!-- ستون ۳: Contact Info -->
+    <div class="footer-section contact">
+      <h3>Contact Info</h3>
+      <p><strong>Address:</strong><br>Iran, Shahin Shahr, Motahari St., East Alley 3, Basij Bazaar, No. 4</p>
+      <p><strong>Phone:</strong><br>+98 937 184 1975</p>
+    </div>
+  </div>
+
+  <!-- لوگو و کپی‌رایت -->
+  <div class="footer-bottom">
+    <img src="lfooter.png" alt="Ebon Café Logo" class="footer-logo" />
+    <p>© 2025 Ebon Café. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+        // Tab functionality with smooth transitions
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const menuSections = document.querySelectorAll('.menu-section');
+  function setActiveSection(sectionId) {
+  menuSections.forEach(section => {
+    if (sectionId === 'all') {
+      section.classList.add('active'); // همه نمایش داده می‌شن
+    } else {
+      section.classList.toggle('active', section.id === sectionId); // فقط یکی فعال می‌مونه
+    }
+  });
+
+  if (sectionId !== 'all') {
+    const target = document.getElementById(sectionId);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                navBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get section to show
+                const sectionId = this.getAttribute('data-section');
+                
+                // Set active section
+                setActiveSection(sectionId);
+            });
+        });
+        
+        // Initialize with all sections visible
+        setActiveSection('all');
+        
+        // Add parallax effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            const scrollPosition = window.pageYOffset;
+            header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+        
+   
+  function toggleTeaFlavors() {
+    const flavors = document.getElementById("tea-flavors");
+    flavors.style.display = (flavors.style.display === "none") ? "block" : "none";
+  }
+
+    </script>
+</body>
+</html>
